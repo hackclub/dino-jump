@@ -1,0 +1,15 @@
+# Environment files
+.env
+
+# Database
+*.db
+
+# Build artifacts
+server
+
+# OS files
+.DS_Store
+
+# IDE files
+.vscode/
+.idea/
