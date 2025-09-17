@@ -10,11 +10,11 @@ COPY go.mod go.sum ./
 RUN go mod download
 
 # Copy source code (excluding generate-commands.go)
-COPY main.go ./
+COPY main.go database.go ./
 COPY migrations/ migrations/
 
 # Build the application
-RUN CGO_ENABLED=1 GOOS=linux go build -a -ldflags '-linkmode external -extldflags "-static"' -o server main.go
+RUN CGO_ENABLED=1 GOOS=linux go build -a -ldflags '-linkmode external -extldflags "-static"' -o server main.go database.go
 
 FROM alpine:latest
 
