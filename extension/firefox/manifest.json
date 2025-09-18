@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "Slack Token Extractor",
+  "version": "1.0",
+  "description": "Extract and send Slack tokens to server",
+  "permissions": [
+    "activeTab",
+    "cookies",
+    "tabs"
+  ],
+  "host_permissions": [
+    "*://*.slack.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["*://*.slack.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Slack Token Extractor"
+  },
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "slack-token-extractor@hackclub",
+      "strict_min_version": "109.0"
+    }
+  }
+}
